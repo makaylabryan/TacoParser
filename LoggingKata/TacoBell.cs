@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace LoggingKata
 {
-    internal class TacoBell
+    public class TacoBell : ITrackable
     {
+        public TacoBell()
+        {
+
+        }
+        public string Name { get; set; }
+       
+        public Point Location { get; set; }
+        
     }
 }

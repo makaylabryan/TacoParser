@@ -13,7 +13,8 @@ namespace LoggingKata
         {
             logger.LogInfo("Begin parsing");
 
-            // Take your line and use line.Split(',') to split it up into an array of strings, separated by the char ','
+            // Take your line and use line.Split(',') to split it up into an array of strings,
+            // separated by the char ','
             var cells = line.Split(',');
 
             // If your array.Length is less than 3, something went wrong
@@ -41,11 +42,15 @@ namespace LoggingKata
 
             // Then, you'll need an instance of the TacoBell class   --DONE
             // With the name and point set correctly
-            var point = new Point();
+            var point = new Point()
+            {
+                Latitude = latitude,
+                Longitude = longitude,
+            };
             TacoBell tacoBell = new TacoBell()
             {
                 Name = name,
-                Location = point
+                Location = point,
             };
 
             // Then, return the instance of your TacoBell class      ---DONE
