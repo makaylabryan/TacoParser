@@ -1,4 +1,6 @@
-﻿namespace LoggingKata
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace LoggingKata
 {
     /// <summary>
     /// Parses a POI file to locate all the Taco Bells
@@ -18,27 +20,38 @@
             if (cells.Length < 3)
             {
                 // Log that and return null
+                logger.LogWarning("Less than 3 items in array. Data is incomplete.");
                 // Do not fail if one record parsing fails, return null
                 return null; // TODO Implement
             }
-
+            string myString = "";
+            double myDouble;
             // grab the latitude from your array at index 0
+            var latitude = double.Parse(cells[0]);
             // grab the longitude from your array at index 1
+            var longitude = double.Parse(cells[1]);
             // grab the name from your array at index 2
+            var name = cells[2];
 
             // Your going to need to parse your string as a `double`
-            // which is similar to parsing a string as an `int`
+            // which is similar to parsing a string as an `int`     ----DONE
 
             // You'll need to create a TacoBell class
-            // that conforms to ITrackable
+            // that conforms to ITrackable    ----DONE
 
-            // Then, you'll need an instance of the TacoBell class
+            // Then, you'll need an instance of the TacoBell class   --DONE
             // With the name and point set correctly
+            var point = new Point();
+            TacoBell tacoBell = new TacoBell()
+            {
+                Name = name,
+                Location = point
+            };
 
-            // Then, return the instance of your TacoBell class
+            // Then, return the instance of your TacoBell class      ---DONE
             // Since it conforms to ITrackable
 
-            return null;
+            return tacoBell;
         }
     }
 }
